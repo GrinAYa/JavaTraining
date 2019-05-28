@@ -1,26 +1,27 @@
 
-public class Number {	
-	public static int takeDigit(int num, int pos) {
-		num = num % (int) Math.pow(10, pos);
-		return num / (int) Math.pow(10, pos-1);
-	}
+public class Number {
 	
 	public static boolean checkIncrSequence(int number) {
-		int first   = takeDigit(number, 1);
-		int second   = takeDigit(number, 2);
-		int third = takeDigit(number, 3);
-		int fourth  = takeDigit(number, 4);
+		int fourthDigit = number % 10;
+		number /= 10;
+		int thirdDigit  = number % 10;
+		number /= 10;
+		int secondDigit = number % 10;
+		number /= 10;
+		int firstDigit  = number % 10;
 		
-		return (fourth < third) && (third < second)  && (second < first);
+		return firstDigit < secondDigit && secondDigit < thirdDigit  && thirdDigit < fourthDigit;
 	}
 	
 	public static boolean checkDescSequence(int number) {
-		int first   = takeDigit(number, 1);
-		int second   = takeDigit(number, 2);
-		int third = takeDigit(number, 3);
-		int fourth  = takeDigit(number, 4);
+		int fourthDigit = number % 10;
+		number /= 10;
+		int thirdDigit  = number % 10;
+		number /= 10;
+		int secondDigit = number % 10;
+		number /= 10;
+		int firstDigit  = number % 10;
 		
-		return (fourth > third) && (third > second)  && (second > first);
+		return firstDigit > secondDigit && secondDigit > thirdDigit  && thirdDigit > fourthDigit;
 	}
-
 }
