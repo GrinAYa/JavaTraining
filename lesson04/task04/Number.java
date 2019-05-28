@@ -1,19 +1,40 @@
 
 public class Number {
-	public static int takeDigit(int num, int pos) {
-		num = num % (int) Math.pow(10, pos);
-		return num / (int) Math.pow(10, pos-1);
-	}
 	
+	private static final double NUMLENGTH = 6.0;
+
 	public static double calculateAverage(int number) {
-		double average = (takeDigit(number, 1) + takeDigit(number, 2) + takeDigit(number, 3) +
-				takeDigit(number, 4) + takeDigit(number, 5) + takeDigit(number, 6)) / 6.0;
-		return  average;
+		int sixthDigit  = number % 10;
+		number /= 10;
+		int fifthDigit  = number % 10;
+		number /= 10;
+		int fourthDigit = number % 10;
+		number /= 10;
+		int thirdDigit  = number % 10;
+		number /= 10;
+		int secondDigit = number % 10;
+		number /= 10;
+		int firstDigit  = number % 10;
+
+		return (firstDigit + secondDigit + thirdDigit + fourthDigit 
+				+ fifthDigit + sixthDigit) / NUMLENGTH;
 	}
-	
+
 	public static double calculateGeomAverage(int number) {
-		double mult = takeDigit(number, 1) * takeDigit(number, 2) * takeDigit(number, 3) *
-				takeDigit(number, 4) * takeDigit(number, 5) * takeDigit(number, 6);
-		return Math.exp(Math.log(mult)/6);
+		int sixthDigit  = number % 10;
+		number /= 10;
+		int fifthDigit  = number % 10;
+		number /= 10;
+		int fourthDigit = number % 10;
+		number /= 10;
+		int thirdDigit  = number % 10;
+		number /= 10;
+		int secondDigit = number % 10;
+		number /= 10;
+		int firstDigit  = number % 10;
+
+		double mult = (firstDigit * secondDigit * thirdDigit * fourthDigit 
+				* fifthDigit * sixthDigit);
+		return Math.exp(Math.log(mult) / NUMLENGTH);
 	}
 }
