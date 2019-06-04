@@ -14,35 +14,32 @@ public class CalendarLogicTest {
 	}
 
 	@Test
-	public void testGetLastDay() {
+	public void testReturnLastDay() {
 		int expected = 31;
-		int actual = CalendarLogic.getLastDay(8, 2019);
+		int actual = CalendarLogic.returnLastDay(8, 2019);
 		assertEquals(expected, actual);
 		
 		expected = 28;
-		actual = CalendarLogic.getLastDay(2, 2019);
+		actual = CalendarLogic.returnLastDay(2, 2019);
 		assertEquals(expected, actual);
 		
 		expected = 29;
-		actual = CalendarLogic.getLastDay(2, 2016);
+		actual = CalendarLogic.returnLastDay(2, 2016);
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testReturnNewDate() {
 		int[] expecteds = {1,6,2019};
-		int[] testDate = {31, 5, 2019};
-		int[] actuals = CalendarLogic.returnNewDate(testDate);
+		int[] actuals = CalendarLogic.returnNewDate(31,5,2019);
 		assertArrayEquals(expecteds, actuals);
 		
 		int[] expecteds2 = {29,2,2016};
-		int[] testDate2 = {28, 2, 2016};
-		int[] actuals2 = CalendarLogic.returnNewDate(testDate2);
+		int[] actuals2 = CalendarLogic.returnNewDate(28,2,2016);
 		assertArrayEquals(expecteds2, actuals2);
 		
 		int[] expecteds3 = {1,1,2019};
-		int[] testDate3 = {31, 12, 2018};
-		int[] actuals3 = CalendarLogic.returnNewDate(testDate3);
+		int[] actuals3 = CalendarLogic.returnNewDate(31,12,2018);
 		assertArrayEquals(expecteds3, actuals3);
 	}
 
