@@ -11,6 +11,9 @@ public class TaskLogicTest {
 		boolean condition = TaskLogic.checkVowel('U');
 		assertTrue(condition);
 		
+		condition = TaskLogic.checkVowel('u');
+		assertTrue(condition);
+		
 		condition = TaskLogic.checkVowel('t');
 		assertFalse(condition);
 	}

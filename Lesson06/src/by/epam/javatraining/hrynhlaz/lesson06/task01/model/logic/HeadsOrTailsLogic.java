@@ -4,24 +4,27 @@ import java.util.Random;
 
 public class HeadsOrTailsLogic {
 
-	final static Random random = new Random();
-	private static final int HEAD = 1;
+	private static final Random RANDOM = new Random();
 
-	public static int flipCoin() {
+	public static boolean flipCoin() {
 		
-		return random.nextInt(2);
+		return RANDOM.nextBoolean();
 	}
 
 	public static int[] calculate(int attempt) {
+		int numOfHeads = 0;
+		int numOfTails = 0;
 		int[] result = new int[2];
-
+		
 		for (int i = 0; i < attempt; i++) {
-			if (flipCoin() == HEAD) {
-				result[0]++;		// number of heads
+			if (flipCoin()) {
+				numOfHeads++;		
 			} else {
-				result[1]++;		// number of tails
+				numOfTails++;	
 			}
 		}
+		result[0] = numOfHeads;
+		result[1] = numOfTails;
 		return result;
 	}
 }

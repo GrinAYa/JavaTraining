@@ -11,15 +11,17 @@ public class DragonLogic {
 	
 	public static int getHeadCount(int age) {
 		int headCount = NUMHEADATBIRTH;
-		if (age > 0 && age <= MIDDLEAGE) {
+		if (age <= MIDDLEAGE) {
 			headCount += age * NUMHEADATYANG;
-		} else if (age > MIDDLEAGE && age <= OLDAGE) {
+		} else if (age <= OLDAGE) {
 			headCount += MIDDLEAGE * NUMHEADATYANG 
-					+ (age - MIDDLEAGE) * NUMHEADATMIDDLE;
-		} else if (age > OLDAGE) {
+					- MIDDLEAGE * NUMHEADATMIDDLE
+					+ NUMHEADATMIDDLE * age;
+		} else {
 			headCount += MIDDLEAGE * NUMHEADATYANG
 					+ (OLDAGE - MIDDLEAGE) * NUMHEADATMIDDLE
-					+ (age - OLDAGE) * NUMHEADATOLD;
+					- OLDAGE * NUMHEADATOLD
+					+ NUMHEADATOLD * age;
 		}
 		return headCount;
 	}
